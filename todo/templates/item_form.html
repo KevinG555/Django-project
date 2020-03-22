@@ -7,28 +7,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 <link rel="stylesheet" href="style.css">
-<title>Title</title>
+<title>Add Item</title>
 </head>
 <body>
-        <h1>Things to do...</h1>
+<h1>I need to do this ...</h1>
+<form method="POST">
 
-        <table>
+            {% csrf_token %}
+            
+           {{ form.as_p}}
+            <button type="submit">Save</button>
+        </form>
 
-            {% for item in items %}
-            <tr>
-                {% if item.done %}
-                <td><strike>{{ item.name }}</strike></td>
-                {% else %}
-                <td>{{ item.name }}</td>
-                {% endif %}
-            </tr>
-            {% empty %}
-            <p>You have nothing to do.</p>
-            {% endfor %}
-        </table>
-        <a href="add">Add an Item</a>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
- </body>
+</body>
 </html>
